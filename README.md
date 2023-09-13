@@ -36,6 +36,14 @@ Owing to the complexity of the datasets in this project, biases afflict the desc
 In order to make the data better serve the subsequent progress, we decided to merge the Rating column of the data from the Wyscout source with the data from the SofaScore source via the Player column. In order to make the data better serve the subsequent progress, we decided to merge the Rating column of the data from the Wyscout source with the data from the SofaScore source via the Player column. However, since the player names of the SofaScore source data are fully spelled, they do not match the Wyscout data. We match by constructing a regular expression that keeps the player's last name and replaces the player's first name with an acronym. Player names with middle names or special characters that are not alphabetic are matched using manual substitution.
 ## 3. EDA
 Using Python package ProfileReport to generate EDA report.
+
+```
+data_Transfer = pd.read_csv('datasets/new/data_TansferMarkt_2021_new.csv')
+Transfermarkt_Data_profile = pf.ProfileReport(data_Transfer, title = "Transfermarkt Data Report 2021")
+Transfermarkt_Data_profile.to_widgets()
+Transfermarkt_Data_profile.to_file('Transfermarkt Data Report 2021.html')
+```
+
 ## 4. Data visualization (Parts)
 Plotting the age of soccer players reveals that more than half the players are younger than 25, peaking at 24-year-olds. 18 features a peak since recruitment efforts ramp up once the player enters adulthood. After 25, however, there is a sharp decline. Some skilled players play well into their 30s, while most end their soccer careers early. This is likely more indicative of career & lifestyle options available to such players than the decrepit age. However, past the mid-30s it becomes impossible to maintain peak physical condition.
 
